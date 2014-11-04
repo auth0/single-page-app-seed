@@ -1,0 +1,43 @@
+{
+  "name": "spa-jwt-authentication-tutorial",
+  "version": "0.0.1",
+  "description": "Single page application JWT authentication tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "dev": "serve . --exec 'gulp build'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:auth0/spa-jwt-authentication-tutorial.git"
+  },
+  "keywords": [
+    "JWT",
+    "authentication",
+    "tutorial",
+    "Single",
+    "page",
+    "application"
+  ],
+  "author": "Auth0 <hello@auth0.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/auth0/spa-jwt-authentication-tutorial/issues"
+  },
+  "homepage": "https://github.com/auth0/spa-jwt-authentication-tutorial",
+  "dependencies": {
+    "page": "^1.3.7",
+    "ripplejs": "^0.5.3",
+    "serve": "^1.4.0"
+  },
+  "devDependencies": {
+    "browserify": "^3.33.0",
+    "clean-css": "^2.1.6",
+    "gulp": "^3.6.2",
+    "mkdirp": "^0.3.5",
+    "npm-css": "https://github.com/danzajdband/npm-css/archive/v0.2.4.tar.gz",
+    "stringify": "^3.0.0",
+    "uglifyify": "^2.1.1",
+    "vinyl-source-stream": "~0.1.1"
+  }
+}
