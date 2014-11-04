@@ -9,8 +9,8 @@ var mkdirp = require('mkdirp');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var stringify = require('stringify');
-var CleanCSS = require('clean-css');
-var npmcss = require('npm-css');
+var rework = require('rework');
+var npmRework = require('rework-npm');
 
 /**
  * Create build directory
@@ -27,7 +27,7 @@ gulp.task('browserify', function() {
   browserify(file)
     .require(file, {'expose': 'modal'})
     .transform(stringify(['.html']))
-    .transform({'global': true}, 'uglifyify')
+    // .transform({'global': true}, 'uglifyify')
     .bundle({
       'debug': false
     })
@@ -36,19 +36,26 @@ gulp.task('browserify', function() {
 });
 
 /**
- * npmcss task
+ * rework-css task
  */
 
-gulp.task('npmcss', function() {
+gulp.task('reworkcss', function() {
   var file = path.resolve('index.css');
-  var linked = npmcss(file);
-  var minified = new CleanCSS().minify(linked);
+  var source = path.relative(__dirname, file);
   var output = fs.createWriteStream('build/build.css');
-  output.write(minified);
+  var contents = fs.readFileSync(file, {encoding: 'utf8'});
+
+  // Initialize and pluginize `rework`
+  var css = rework(contents);
+  css.use(npmRework());
+
+  // write result
+  output.write(css.toString())
   output.end();
 });
 
 /**
  * Build task
  */
-gulp.task('build', ['browserify', 'npmcss']);
+
+gulp.task('build', ['browserify', 'reworkcss']);
