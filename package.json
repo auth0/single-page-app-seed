@@ -1,12 +1,12 @@
 {
-  "name": "browserify-frontned-app-seed",
+  "name": "single-page-app-seed",
   "version": "0.0.1",
   "description": "Single page application JWT authentication tutorial",
   "main": "index.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git@github.com:auth0/browserify-frontned-app-seed.git"
+    "url": "git@github.com:auth0/single-page-app-seed.git"
   },
   "keywords": [
     "SPA",
@@ -24,9 +24,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/auth0/browserify-frontned-app-seed/issues"
+    "url": "https://github.com/auth0/single-page-app-seed/issues"
   },
-  "homepage": "https://github.com/auth0/browserify-frontned-app-seed",
+  "homepage": "https://github.com/auth0/single-page-app-seed",
   "dependencies": {
     "bootstrap": "^3.3.0",
     "jquery": "^2.1.1",

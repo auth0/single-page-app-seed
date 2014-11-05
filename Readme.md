@@ -1,6 +1,6 @@
-# Browserify Frontend SPA app seed
+# Single Page App Seed
 
-A seed project for creating a SPA using Browserify and no framework at all
+A very opinionated seed for creating Single Page Apps that uses NO framework at all. Just a bunch of [component libs](#used-libraries).
 
 ## Why?
 
@@ -8,12 +8,20 @@ You want to **create a new SPA but you don't want to depend on any framework** l
 
 ## Used libraries
 
+### Build Libraries
 * Browserify
-* Watchify
-* Page.js
+* Rework
 * Gulpfile
+* Watchify
+
+### App libraries
 * RippleJS
+* Page.js
 * Bootstrap
+
+## Prerequisites
+
+Have gulp installed globally: `npm install -g gulp`
 
 ## Using it
 
@@ -22,3 +30,7 @@ Just run `npm install`, run `gulp` and then go to `http://localhost:3000`.
 ## Feedback
 
 Do you have any feedback about the app? Just let us know :)
+
+## License
+
+MIT
