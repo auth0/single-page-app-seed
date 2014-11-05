@@ -7,10 +7,12 @@ var gulp = require('gulp');
 var path = require('path');
 var mkdirp = require('mkdirp');
 var browserify = require('browserify');
+var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var stringify = require('stringify');
 var rework = require('rework');
 var npmRework = require('rework-npm');
+var serve = require('gulp-serve');
 
 /**
  * Create build directory
@@ -18,22 +20,40 @@ var npmRework = require('rework-npm');
 
 mkdirp('./build');
 
+function bundle(browserified, env) {
+  browserified
+    .bundle()
+    .pipe(source('build.js'))
+    .pipe(gulp.dest('./build/'));
+}
+
+
+function browserifyTask(env) {
+  return function() {
+    var file = path.resolve('index.js');
+    var browserified = browserify(watchify.args);
+
+    if (env === 'prod') {
+      browserified.transform({global: true}, 'uglifyify');
+    }
+    if (env === 'dev') {
+       browserified = watchify(browserified);
+       browserified.on('update', function(){
+        bundle(browserified, env);
+      });
+    }
+
+    browserified.transform(stringify(['.html']));
+    bundle(browserified.add(file), env);
+  }
+}
 /**
  * Browserify task
  */
 
-gulp.task('browserify', function() {
-  var file = path.resolve('index.js');
-  browserify(file)
-    .require(file, {'expose': 'modal'})
-    .transform(stringify(['.html']))
-    // .transform({'global': true}, 'uglifyify')
-    .bundle({
-      'debug': false
-    })
-    .pipe(source('build.js'))
-    .pipe(gulp.dest('./build/'));
-});
+gulp.task('browserify-dev', browserifyTask('dev'));
+
+gulp.task('serve', serve(__dirname));
 
 /**
  * rework-css task
@@ -58,4 +78,5 @@ gulp.task('reworkcss', function() {
  * Build task
  */
 
-gulp.task('build', ['browserify', 'reworkcss']);
+gulp.task('default', ['watch']);
+gulp.task('watch', ['browserify-dev', 'reworkcss', 'serve']);
