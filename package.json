@@ -1,27 +1,32 @@
 {
-  "name": "spa-jwt-authentication-tutorial",
+  "name": "browserify-frontned-app-seed",
   "version": "0.0.1",
   "description": "Single page application JWT authentication tutorial",
   "main": "index.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git@github.com:auth0/spa-jwt-authentication-tutorial.git"
+    "url": "git@github.com:auth0/browserify-frontned-app-seed.git"
   },
   "keywords": [
-    "JWT",
-    "authentication",
+    "SPA",
+    "browserify",
+    "frontend",
+    "seed",
     "tutorial",
     "Single",
     "page",
     "application"
   ],
-  "author": "Auth0 <hello@auth0.com>",
+  "authors": [
+    "Cristian Douce <cristian@auth0.com>",
+    "Martin Gontovnikas <martin@gon.to>",
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/auth0/spa-jwt-authentication-tutorial/issues"
+    "url": "https://github.com/auth0/browserify-frontned-app-seed/issues"
   },
-  "homepage": "https://github.com/auth0/spa-jwt-authentication-tutorial",
+  "homepage": "https://github.com/auth0/browserify-frontned-app-seed",
   "dependencies": {
     "bootstrap": "^3.3.0",
     "jquery": "^2.1.1",
