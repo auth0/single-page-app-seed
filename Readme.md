@@ -27,10 +27,14 @@ Have gulp installed globally: `npm install -g gulp`
 
 Just run `npm install`, run `gulp` and then go to `http://localhost:3000`.
 
-## Feedback
+## Issue Reporting
 
-Do you have any feedback about the app? Just let us know :)
+If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+
+## Author
+
+[Auth0](auth0.com)
 
 ## License
 
-MIT
+This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
